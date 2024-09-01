@@ -16,20 +16,32 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/contact", methods=['POST', 'GET'])
+
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    messageInfo = False
     if request.method == "POST":
         data = request.form
-        name = data["name"]
-        # phone = datarequest.form.get("phone")
-        # message = request.form.get("message")
-        # print(f"Name: {name}\nPhone: {phone}\nMessage: {message}")
-        success_message = "Successfully sent your message."
-        messageInfo = True
-    elif request.method == "GET" and request.args:
-        messageInfo = True
-    return render_template('contact.html', success=messageInfo)
+        print(data["name"])
+        print(data["email"])
+        print(data["phone"])
+        print(data["message"])
+        return render_template("contact.html", msg_sent=True)
+    return render_template("contact.html", msg_sent=False)
+
+
+# @app.route("/contact", methods=['POST', 'GET'])
+# def contact():
+#     messageInfo = False
+#     if request.method == "POST":
+#         name = request.form.get('name')
+#         phone = request.form.get("phone")
+#         message = request.form.get("message")
+#         print(f"Name: {name}\nPhone: {phone}\nMessage: {message}")
+#         success_message = "Successfully sent your message."
+#         messageInfo = True
+#     elif request.method == "GET" and request.args:
+#         messageInfo = True
+#     return render_template('contact.html', success=messageInfo)
 
 # @app.route("/contact", methods=["GET", "POST"])
 # def contact():
