@@ -78,6 +78,15 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 
+# app = Flask(__name__)
+# app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USERNAME'] = mail_username  # Use your actual Gmail address
+# app.config['MAIL_PASSWORD'] = mail_password     # Use your generated App Password
+# app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_USE_SSL'] = False
+# mail = Mail(app)
+
 @app.route("/")
 def home():
     response = requests.get('https://api.npoint.io/674f5423f73deab1e9a7')
